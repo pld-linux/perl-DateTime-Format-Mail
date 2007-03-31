@@ -5,23 +5,24 @@
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	DateTime
 %define	pnam	Format-Mail
-Summary:	DateTime::Format::Mail - Convert between DateTime and RFC2822/822 formats
-#Summary(pl):
+Summary:	DateTime::Format::Mail - Convert between DateTime and RFC 2822/822 formats
+Summary(pl.UTF-8):	DateTime::Format::Mail - konwersja między formatami DateTime a RFC 2822/822
 Name:		perl-DateTime-Format-Mail
 Version:	0.30
 Release:	0.1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-authors/id/D/DR/DROLSKY/DateTime-Format-Mail-%{version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-authors/id/D/DR/DROLSKY/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	d3940d6b387b75de0332201db1685e7d
 Patch0:		%{name}-datetime_version.patch
+URL:		http://search.cpan.org/dist/DateTime-Format-Mail/
+BuildRequires:	perl-Module-Build
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
-BuildRequires:	perl(DateTime)
-BuildRequires:	perl(Module::Build)
-BuildRequires:	perl(Params::Validate) >= 0.67
+BuildRequires:	perl-DateTime
+BuildRequires:	perl-Params-Validate >= 0.67
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -30,21 +31,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 RFCs 2822 and 822 specify date formats to be used by email. This
 module parses and emits such dates.
 
-RFC2822 (April 2001) introduces a slightly different format of date
-than that used by RFC822 (August 1982). The main correction is that
-the preferred format is more limited, and thus easier to parse
-programmatically.
-
-Despite the ease of generating and parsing perfectly valid RFC822 and
-RFC2822 people still get it wrong. So this module provides four things
-for those handling mail dates:
-
-As a future direction, I'm contemplating an even stricter parser that
-will only accept dates with no obsolete elements.
-
-
-
-# %description -l pl # TODO
+%description -l pl.UTF-8
+RFC 2822 i 822 określają formaty daty przeznaczone do używania w
+poczcie elektronicznej. Ten moduł analizuje i tworzy takie daty.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
