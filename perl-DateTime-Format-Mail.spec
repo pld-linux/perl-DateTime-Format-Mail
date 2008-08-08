@@ -9,7 +9,7 @@ Summary:	DateTime::Format::Mail - Convert between DateTime and RFC 2822/822 form
 Summary(pl.UTF-8):	DateTime::Format::Mail - konwersja między formatami DateTime a RFC 2822/822
 Name:		perl-DateTime-Format-Mail
 Version:	0.3001
-Release:	0.1
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
