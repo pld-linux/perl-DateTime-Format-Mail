@@ -58,5 +58,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS Changes CREDITS README
-%{perl_vendorlib}/DateTime/Format/*.pm
-%{_mandir}/man3/*
+%{perl_vendorlib}/DateTime/Format/Mail.pm
+%{_mandir}/man3/DateTime::Format::Mail.3pm*
