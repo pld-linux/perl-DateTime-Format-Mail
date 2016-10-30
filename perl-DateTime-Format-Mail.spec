@@ -8,14 +8,14 @@
 Summary:	DateTime::Format::Mail - Convert between DateTime and RFC 2822/822 formats
 Summary(pl.UTF-8):	DateTime::Format::Mail - konwersja między formatami DateTime a RFC 2822/822
 Name:		perl-DateTime-Format-Mail
-Version:	0.3001
+Version:	0.403
 Release:	1
+Epoch:		1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/DateTime/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	15e36249e866463bd0237262a8e43b16
-Patch0:		%{name}-datetime_version.patch
+# Source0-md5:	b34a52d96290c42cf53e8db0a8f16ecd
 URL:		http://search.cpan.org/dist/DateTime-Format-Mail/
 BuildRequires:	perl-Module-Build
 BuildRequires:	perl-devel >= 1:5.8.0
@@ -37,26 +37,25 @@ poczcie elektronicznej. Ten moduł analizuje i tworzy takie daty.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
-%patch0 -p1
 
 %build
-%{__perl} Build.PL \
-	destdir=$RPM_BUILD_ROOT \
-	installdirs=vendor
-./Build
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor
+%{__make}
 
-%{?with_tests:./Build test}
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-./Build install
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS Changes CREDITS README
+%doc Changes CREDITS README
 %{perl_vendorlib}/DateTime/Format/Mail.pm
 %{_mandir}/man3/DateTime::Format::Mail.3pm*
