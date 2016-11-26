@@ -11,18 +11,18 @@ Name:		perl-DateTime-Format-Mail
 Version:	0.403
 Release:	1
 Epoch:		1
-# same as perl
+# same as perl 5
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/DateTime/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	b34a52d96290c42cf53e8db0a8f16ecd
 URL:		http://search.cpan.org/dist/DateTime-Format-Mail/
-BuildRequires:	perl-Module-Build
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
-BuildRequires:	perl-DateTime
+BuildRequires:	perl-DateTime >= 1.04
 BuildRequires:	perl-Params-Validate >= 0.67
+BuildRequires:	perl-Test-Simple
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
