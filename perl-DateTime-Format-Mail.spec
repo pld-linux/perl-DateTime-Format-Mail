@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_without	tests		# do not perform "make test"
 #
-%include	/usr/lib/rpm/macros.perl
 %define	pdir	DateTime
 %define	pnam	Format-Mail
 Summary:	DateTime::Format::Mail - Convert between DateTime and RFC 2822/822 formats
