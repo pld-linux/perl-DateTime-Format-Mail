@@ -15,9 +15,10 @@ License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/DateTime/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	b34a52d96290c42cf53e8db0a8f16ecd
-URL:		http://search.cpan.org/dist/DateTime-Format-Mail/
+URL:		https://metacpan.org/release/DateTime-Format-Mail
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	rpmbuild(macros) >= 1.745
 %if %{with tests}
 BuildRequires:	perl-DateTime >= 1.04
 BuildRequires:	perl-Params-Validate >= 0.67
